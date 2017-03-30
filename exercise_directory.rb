@@ -12,7 +12,7 @@ students = [
 	{name: "Joffrey Baratheon", cohort: :november},
 	{name: "Norman Bates", cohort: :november}
 ]
-
+=begin
 def input_students
 	puts "Please enter the name of the students"
 	puts "To finish, just hit return twice"
@@ -31,7 +31,7 @@ def input_students
 	# return the array of students
 	students
 end
-
+=end
 def print_header
 	puts "The students of Villains Academy"
 	puts "-------------"
@@ -40,8 +40,11 @@ end
 def print(students)
 	# Ex1 Print number before name.
 	students.each_with_index do |student, index| index += 1
-		puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+		# Ex2 Prints out student name beginning with D.
+		if "#{student[:name]}".start_with?('D')
+		puts "#{index} #{student[:name]} (#{student[:cohort]} cohort)"
 	end
+end
 end
 
 def print_footer(students)
