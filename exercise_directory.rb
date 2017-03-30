@@ -40,11 +40,14 @@ end
 def print(students)
 	# Ex1 Print number before name.
 	students.each_with_index do |student, index| index += 1
-		# Ex2 Prints out student name beginning with D.
-		if "#{student[:name]}".start_with?('D')
+	# Ex2 Prints out student name beginning with D.
+	if "#{student[:name]}".start_with?('D')
+		# Ex3 Print student name shorter than 12 characters/
+		if "#{student[:name]}".length <= 12
 		puts "#{index} #{student[:name]} (#{student[:cohort]} cohort)"
+		end
 	end
-end
+	end
 end
 
 def print_footer(students)
