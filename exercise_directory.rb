@@ -1,16 +1,16 @@
 # Let's put all students into an array
 students = [
-	{name: "Dr. Hannibal Lecter", cohort: :november},
-	{name: "Darth Vader", cohort: :november},
-	{name: "Nurse Ratched", cohort: :november},
-	{name: "Michael Corleone", cohort: :november},
-	{name: "Alex DeLarge", cohort: :november},
-	{name: "The Wicked Witch of the West", cohort: :november},
-	{name: "Terminator", cohort: :november},
-	{name: "Freddy Krueger", cohort: :november},
-	{name: "The Joker", cohort: :november},
-	{name: "Joffrey Baratheon", cohort: :november},
-	{name: "Norman Bates", cohort: :november}
+	{name: "Dr. Hannibal Lecter", cohort: :november, hobby: "Eating people", cob: "United Kingdom"},
+	{name: "Darth Vader", cohort: :november, hobby: "Bending spines with his mind", cob: "Tatooine"},
+	{name: "Nurse Ratched", cohort: :november, hobby: "Exercising her authority", cob: "United States"},
+	{name: "Michael Corleone", cohort: :november, hobby: "Volunteer work", cob: "Italy"},
+	{name: "Alex DeLarge", cohort: :november, hobby: "Knitting", cob: "United Kingdom"},
+	{name: "The Wicked Witch of the West", cohort: :november, hobby: "Broom riding", cob: "Oz"},
+	{name: "Terminator", cohort: :november, hobby: "Stalking John Connor", cob: "United States"},
+	{name: "Freddy Krueger", cohort: :november, hobby: "Giving nightmares", cob: "United States"},
+	{name: "The Joker", cohort: :november,  hobby: "Practical jokes that ends up killing you", cob: "United States"},
+	{name: "Joffrey Baratheon", cohort: :november, hobby: "Putting heads on pikes", cob: "Westeros"},
+	{name: "Norman Bates", cohort: :november, hobby: "Bird stuffing", cod: "United States"}
 ]
 =begin
 def input_students
@@ -47,7 +47,7 @@ def print(students)
 	# Ex4 Using whlte statement to print out student list.
 	index = 0
 	while index < students.length
-		puts "#{index + 1} #{students[index][:name]} (#{students[index][:cohort]} cohort)"
+		puts "#{index + 1} #{students[index][:name]} (#{students[index][:cohort]} cohort) | Hobby: #{students[index][:hobby]} | Country of Birth: #{students[index][:cob]}"
 		index += 1
 		end
 	# end
