@@ -33,8 +33,8 @@ def input_students
 end
 =end
 def print_header
-	puts "The students of Villains Academy"
-	puts "-------------"
+	puts "The students of Villains Academy".center(100)
+	puts "-------------".center(100)
 end
 
 def print(students)
@@ -47,7 +47,7 @@ def print(students)
 	# Ex4 Using whlte statement to print out student list.
 	index = 0
 	while index < students.length
-		puts "#{index + 1} #{students[index][:name]} (#{students[index][:cohort]} cohort) | Hobby: #{students[index][:hobby]} | Country of Birth: #{students[index][:cob]}"
+		puts "#{index + 1} #{students[index][:name]} (#{students[index][:cohort]} cohort) | Hobby: #{students[index][:hobby]} | Country of Birth: #{students[index][:cob]}".center(50)
 		index += 1
 		end
 	# end
@@ -55,7 +55,7 @@ def print(students)
 end
 
 def print_footer(students)
-	puts "Overall, we have #{students.count} great students"
+	puts "Overall, we have #{students.count} great students".center(100)
 end
 
 # students = input_students
