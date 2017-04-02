@@ -1,19 +1,19 @@
 # Let's put all students into an array
-=begin
+
 students = [
-	{name: "Dr. Hannibal Lecter", cohort: :november, hobby: "Eating people", cob: "United Kingdom"},
-	{name: "Darth Vader", cohort: :november, hobby: "Bending spines with his mind", cob: "Tatooine"},
-	{name: "Nurse Ratched", cohort: :november, hobby: "Exercising her authority", cob: "United States"},
-	{name: "Michael Corleone", cohort: :november, hobby: "Volunteer work", cob: "Italy"},
-	{name: "Alex DeLarge", cohort: :november, hobby: "Knitting", cob: "United Kingdom"},
-	{name: "The Wicked Witch of the West", cohort: :november, hobby: "Broom riding", cob: "Oz"},
-	{name: "Terminator", cohort: :november, hobby: "Stalking John Connor", cob: "United States"},
-	{name: "Freddy Krueger", cohort: :november, hobby: "Giving nightmares", cob: "United States"},
-	{name: "The Joker", cohort: :november,  hobby: "Practical jokes that ends up killing you", cob: "United States"},
-	{name: "Joffrey Baratheon", cohort: :november, hobby: "Putting heads on pikes", cob: "Westeros"},
-	{name: "Norman Bates", cohort: :november, hobby: "Bird stuffing", cod: "United States"}
+	{name: "Dr. Hannibal Lecter", cohort: :October, hobby: "Eating people", cob: "United Kingdom"},
+	{name: "Darth Vader", cohort: :December, hobby: "Bending spines with his mind", cob: "Tatooine"},
+	{name: "Nurse Ratched", cohort: :August, hobby: "Exercising her authority", cob: "United States"},
+	{name: "Michael Corleone", cohort: :October, hobby: "Volunteer work", cob: "Italy"},
+	{name: "Alex DeLarge", cohort: :December, hobby: "Knitting", cob: "United Kingdom"},
+	{name: "The Wicked Witch of the West", cohort: :January, hobby: "Broom riding", cob: "Oz"},
+	{name: "Terminator", cohort: :December, hobby: "Stalking John Connor", cob: "United States"},
+	{name: "Freddy Krueger", cohort: :October, hobby: "Giving nightmares", cob: "United States"},
+	{name: "The Joker", cohort: :January,  hobby: "Practical jokes that ends up killing you", cob: "United States"},
+	{name: "Joffrey Baratheon", cohort: :August, hobby: "Putting heads on pikes", cob: "Westeros"},
+	{name: "Norman Bates", cohort: :January, hobby: "Bird stuffing", cod: "United States"}
 ]
-=end
+=begin
 def input_students
 	puts "Please enter the name of the students"
 	puts "To finish, just hit return four times"
@@ -57,7 +57,7 @@ def input_students
 	# return the array of students
 	students
 end
-
+=end
 def cohort_month(space)
 	month = [:January, :Febuary, :March, :April, :May, :June, :July, :August, :September, :October, :November, :December,]
 	space
@@ -96,8 +96,21 @@ def print_footer(students)
 	puts "Overall, we have #{students.count} great students".center(100)
 end
 
-students = input_students
+def student_cohort(students)
+	students.group_by { |student| student[:cohort]}.each {|k, v| # key, value
+	puts "#{k.capitalize} cohorts".center(100)
+	puts "-------------".center(100)
+	v.each {|v|
+		v2 = v[:name]
+		puts v2.center(100)
+	}
+puts "".center(100)
+}
+end
+
+#students = input_students
 # nothing happens until we call the methods
-print_header
-print(students)
-print_footer(students)
+# print_header
+# print(students)
+# print_footer(students)
+student_cohort(students)
