@@ -20,18 +20,18 @@ def input_students
 	# create an empty array
 	students = []
 	# get the first name
-	name = gets.chomp
+	name = gets.strip
 
 	puts "What is #{name}'s hobby?"
-	hobby = gets.chomp
+	hobby = gets.strip
 	hobby = "None" if hobby.empty?
 
 	puts "What country does #{name} come from?"
-	country = gets.chomp
+	country = gets.strip
 	country = "Unknown" if country.empty?
 	
 	puts "Please enter a cohort month for #{name}"
-	cohort = gets.chomp.to_sym
+	cohort = gets.strip.to_sym
 
 	# while the name is not empty, repeat this code
 	while !name.empty? do
@@ -40,18 +40,18 @@ def input_students
 		puts "Now we have #{students.count} students"
 		# get another name form the user
 		puts "Please enter another student or hit return four times to finish"
-		name = gets.chomp
+		name = gets.strip
 
 		puts "What is #{name}'s hobby?"
-		hobby = gets.chomp
+		hobby = gets.strip
 		hobby = "None" if hobby.empty?
 
 		puts "What country does #{name} come from?"
-		country = gets.chomp
+		country = gets.strip
 		country = "Unknown" if country.empty?
 	
 		puts "Please enter a cohort month for #{name}"
-		cohort = gets.chomp.to_sym
+		cohort = gets.strip.to_sym
 
 	end
 	# return the array of students
@@ -63,7 +63,7 @@ def cohort_month(space)
 	space
     until month.include?(space)
     puts "Please type a month correctly eg \"January\"."
-    space = gets.chomp.to_sym
+    space = gets.strip.to_sym
   	end
   space
 end
