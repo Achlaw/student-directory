@@ -25,7 +25,7 @@ def process(selection)
 	when "3"
 		save_students
 	when "4"
-		load_students
+		load_students_input
 	when "9"
 		exit # this will cause the program to terminate
 	else
@@ -52,6 +52,7 @@ def show_students
 	print_header
 	print_student_list
 	print_footer
+	puts " >> Loading complete"
 end
 
 def print_header
@@ -70,8 +71,11 @@ def print_footer
 end
 
 def save_students
+	puts "Enter file name to save as"
+	puts "> "
+	save_as = STDIN.gets.chomp
 	# open the file for writing
-	file = File.open("students.csv", "w")
+	file = File.open(save_as, "w")
 	# iterate over the array of students
 	@students.each do |student|
 		student_data = [student[:name], student[:cohort]]
@@ -79,23 +83,38 @@ def save_students
 		file.puts csv_line
 	end
 	file.close
+	puts " >> Save successful"
 end
 
-def load_students(filename = "students.csv")
+def load_students_input
+	puts "Enter file name to open"
+	filename = STDIN.gets.chomp
+	if File.exists?(filename) # if it exists
+		load_students(filename)
+		puts "Loaded #{@students.count} from #{filename}"
+	else # if it doesn't xxist
+		puts "Sorry, #{filename} doesn't exist."
+		exit # quit the program
+end
+end
+
+
+def load_students(filename)
 	file = File.open(filename, "r")
 	file.readlines.each do |line|
 	name, cohort = line.chomp.split(',')
 	@students << {name: name, cohort: cohort.to_sym}
 	end
 	file.close
+	puts " >> Loading complete"
 end
 
 def try_load_students
 	#filename = ARGV.first # first argument from the command line
 	filename = "students.csv" # Loads this file on startup
-	return if filename.nil? # get out of the method if it isn't given
+	#if filename.nil? # get out of the method if it isn't given
 	if File.exists?(filename) # if it exists
-		load_students(filename)
+		load_students("students.csv")
 		puts "Loaded #{@students.count} from #{filename}"
 	else # if it doesn't xxist
 		puts "Sorry, #{filename} doesn't exist."
